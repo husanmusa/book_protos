@@ -10,7 +10,7 @@ service UserService {
   rpc GetUser(ById) returns (User) {}
   rpc GetUserList(GetUserListRequest) returns (GetUserListResponse) {}
   rpc DeleteUser(ById) returns (google.protobuf.Empty) {}
-  rpc SignInUser(User) returns (SignInResp) {}
+  rpc SignInUser(SignInReq) returns (SignInResp) {}
 }
 
 message User {
@@ -37,4 +37,9 @@ message ById {
 
 message SignInResp {
   string token = 1;
+}
+
+message SignInReq {
+  string username = 1;
+  string password = 2;
 }
